@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "309793885222",
+    "project_id": "quisumqr",
+    "storage_bucket": "quisumqr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:309793885222:android:ac385e84d31f6ba4e3eae7",
+        "android_client_info": {
+          "package_name": "com.quisumbing.quisumqr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "309793885222-gq5oq3v5vo094d6239e8rsgqopvp0qlh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmELi4DwGInbEI3HOEfrMTUVgofQo64Bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "309793885222-gq5oq3v5vo094d6239e8rsgqopvp0qlh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

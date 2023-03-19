@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">QuisumQR</string>
+    <string name="full_name">Full Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="_91">+ 91</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="already_have_an_account">Already have an Account ?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="grade_level">Grade Level</string>
+    <string name="grade_and_section">Grade and Section</string>
+    <string name="lrn">LRN</string>
+    <string name="parent_s_name">Parent\'s Name</string>
+    <string name="user_prompt">User Prompt</string>
+    <string name="user_prompt_Student">Student</string>
+</resources>
