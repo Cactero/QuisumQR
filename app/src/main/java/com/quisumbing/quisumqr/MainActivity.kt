@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.messaging.FirebaseMessaging
+import com.google.type.DateTime
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -95,17 +96,18 @@ class MainActivity : AppCompatActivity() {
     private fun isValid() {
         if (tv_textView.text.startsWith("MSHS"))
         {
-            tv_confirmation.text = "Attendance logged!"
             var loggedinStudent = intent.getStringExtra("loggedinStudent")
-            val current = LocalDateTime.now()
-            val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")
-            val formatted = current.format(formatter)
-            database = FirebaseDatabase.getInstance("https://quisumqr-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Students")
+            val currentdate = LocalDateTime.now()
+            val dayformatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+            val timeformatter = DateTimeFormatter.ofPattern("HHmmss")
+            val formattedDay = currentdate.format(dayformatter)
+            val formattedTime = currentdate.format(timeformatter)
             if (loggedinStudent != null) {
-                database.child(loggedinStudent).child("Attendances").child(formatted).setValue("Present").addOnSuccessListener {
-                    Toast.makeText(this,"Successfully Saved", Toast.LENGTH_SHORT).show()
-                }
+                database = FirebaseDatabase.getInstance("https://quisumqr-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Students")
+                database.child(loggedinStudent).child("Attendances").child(formattedDay).setValue(formattedTime.toString()).addOnSuccessListener {
+                Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show() }
             }
+            tv_confirmation.text = "Attendance logged!"
         }
     }
 

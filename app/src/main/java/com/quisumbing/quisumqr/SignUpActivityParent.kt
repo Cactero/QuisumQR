@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.quisumbing.quisumqr.databinding.ActivitySignUpParentBinding
 import com.quisumbing.quisumqr.databinding.ActivitySignupStudentBinding
+import kotlinx.android.synthetic.main.activity_sign_up_parent.*
 
 class SignUpActivityParent : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpParentBinding
@@ -43,17 +44,29 @@ class SignUpActivityParent : AppCompatActivity() {
                 binding.parentSignUpStudentFirstName.getEditText()?.getText().toString()
             val parentStudentLastName =
                 binding.parentSignUpStudentLastName.getEditText()?.getText().toString()
+            val parentStudentGrade =
+                binding.parentSignUpStudentGrade.getEditText()?.getText().toString()
+            val parentStudentSection =
+                binding.parentSignUpStudentSection.getEditText()?.getText().toString()
             val parentStudentLRN = binding.parentSignUpStudentLRN.getEditText()?.getText().toString()
             val parentEmail = binding.parentSignUpEmail.getEditText()?.getText().toString()
 
             if (parentFirstName.isNotEmpty() && parentLastName.isNotEmpty() && parentStudentFirstName.isNotEmpty() && parentStudentLastName.isNotEmpty()
-                && parentStudentLRN.isNotEmpty() && parentEmail.isNotEmpty()
+                && parentStudentGrade.isNotEmpty() && parentStudentSection.isNotEmpty() && parentStudentLRN.isNotEmpty() && parentEmail.isNotEmpty()
             ) {
                 firebaseAuth.createUserWithEmailAndPassword(parentEmail, parentStudentLRN)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             database = FirebaseDatabase.getInstance("https://quisumqr-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Parents")
-                            val Parent = Parent(parentFirstName,parentLastName,parentStudentFirstName,parentStudentLastName,parentStudentLRN,parentEmail)
+                            val Parent = Parent(
+                                parentFirstName,
+                                parentLastName,
+                                parentStudentFirstName,
+                                parentStudentLastName,
+                                parentStudentGrade,
+                                parentStudentSection,
+                                parentStudentLRN,
+                                parentEmail)
                             database.child("Parent" + parentStudentLRN).child("Info").setValue(Parent).addOnSuccessListener {
                                 Toast.makeText(this,"Successfully Saved", Toast.LENGTH_SHORT).show()
                             }.addOnFailureListener {

@@ -49,6 +49,18 @@
         android:textColor="@android:color/black"
         android:textSize="12pt" />
 
+        <TextView
+            android:id="@+id/scannerTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Time"
+            android:textColor="@android:color/black"
+            android:textSize="12pt" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/scannerGoToSignUp"
             android:layout_width="match_parent"
@@ -60,6 +72,8 @@
             android:paddingEnd="10dp"
             android:paddingBottom="10dp"
             android:text="Sign Up" />
+
+
 
     </LinearLayout>
 </ScrollView>

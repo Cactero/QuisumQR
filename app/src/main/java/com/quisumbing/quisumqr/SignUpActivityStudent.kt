@@ -67,8 +67,10 @@ class SignUpActivityStudent : AppCompatActivity() {
                 binding.studentSignUpGrade.getEditText()?.getText().toString()
             val studentSection =
                 binding.studentSignUpSection.getEditText()?.getText().toString()
-            val studentParentsName =
-                binding.studentSignUpParentsName.getEditText()?.getText().toString()
+            val studentParentsFirstName =
+                binding.studentSignUpParentsFirstName.getEditText()?.getText().toString()
+            val studentParentsLastName =
+                binding.studentSignUpParentsLastName.getEditText()?.getText().toString()
             //val studentPassword =
             //    binding.studentSignUpPassword.getEditText()?.getText().toString()
             //val studentConfirmPassword =
@@ -78,8 +80,8 @@ class SignUpActivityStudent : AppCompatActivity() {
 
 
 
-            if (studentFirstName.isNotEmpty() && studentLastName.isNotEmpty() && studentGrade.isNotEmpty() &&
-                studentSection.isNotEmpty() && studentParentsName.isNotEmpty() && studentLRN.isNotEmpty() && studentEmail.isNotEmpty()
+            if (studentFirstName.isNotEmpty() && studentLastName.isNotEmpty() && studentGrade.isNotEmpty() && studentSection.isNotEmpty() &&
+                studentParentsFirstName.isNotEmpty() && studentParentsLastName.isNotEmpty() && studentLRN.isNotEmpty() && studentEmail.isNotEmpty()
             ) {
                 //if(studentPassword == studentConfirmPassword) {
                     firebaseAuth.createUserWithEmailAndPassword(studentEmail, studentLRN)
@@ -95,7 +97,8 @@ class SignUpActivityStudent : AppCompatActivity() {
                                     studentSection,
                                     studentLRN,
                                     studentEmail,
-                                    studentParentsName
+                                    studentParentsFirstName,
+                                    studentParentsLastName,
                                 )
 
                                 database.child(studentLRN).child("Info").setValue(Student)
@@ -119,7 +122,11 @@ class SignUpActivityStudent : AppCompatActivity() {
                                         Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
                                     }
                                 val intent = Intent(this, LoginActivityStudent::class.java)
-                                startActivity(intent)
+                                val extras = Bundle().apply {
+                                    putString("studentGrade",studentGrade)
+                                    putString("studentSection",studentSection)
+                                }
+                                startActivity(intent.putExtras(extras))
                             } else {
                                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT)
                                     .show()

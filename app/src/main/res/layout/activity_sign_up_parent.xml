@@ -22,11 +22,16 @@
             android:text="Sign Up (Parent)"
             android:textAlignment="center"/>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/parentSignUpFirstName"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:hint="@string/first_name"
             android:orientation="vertical"
@@ -44,6 +49,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginTop="10dp"
             android:hint="@string/last_name"
             android:orientation="vertical"
@@ -55,41 +61,90 @@
                 android:inputType="text"
                 android:singleLine="true"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/parentSignUpStudentFirstName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Student's First Name"
-            android:orientation="vertical"
-            app:boxStrokeColor="@color/black">
-
-            <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/parentSignUpStudentFirstName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:singleLine="true"></com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:hint="Student's First Name"
+                android:orientation="vertical"
+                app:boxStrokeColor="@color/black">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/parentSignUpStudentLastName"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/parentSignUpStudentLastName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:hint="Student's Last Name"
+                android:orientation="vertical"
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout></LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Student's Last Name"
-            android:orientation="vertical"
-            app:boxStrokeColor="@color/black">
-
-            <com.google.android.material.textfield.TextInputEditText
+            android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/parentSignUpStudentGrade"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:singleLine="true"></com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="2"
+                android:layout_marginTop="10dp"
+                android:hint="Grade"
+                android:orientation="vertical"
+                app:boxStrokeColor="@color/black">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:singleLine="true"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/parentSignUpStudentSection"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:layout_marginTop="10dp"
+                android:hint="Section"
+                android:orientation="vertical"
+                app:boxStrokeColor="@color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"></com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/parentSignUpStudentLRN"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
