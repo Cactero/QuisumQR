@@ -26,14 +26,6 @@ class SignUpActivityStudent : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
 
 
-    //val studentFirstNameRef = database.getReference("firstname")
-    //val studentLastNameRef = database.getReference("lastname")
-    //val studentGradeRef = database.getReference("grade")
-    //val studentSectionRef = database.getReference("section")
-    //val studentEmailRef = database.getReference("email")
-    //val studentLRNRef = database.getReference("lrn")
-    //val studentParentsNameRef = database.getReference("parentsname")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

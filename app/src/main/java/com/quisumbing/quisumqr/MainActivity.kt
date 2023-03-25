@@ -98,19 +98,54 @@ class MainActivity : AppCompatActivity() {
         {
             var loggedinStudent = intent.getStringExtra("loggedinStudent")
             val currentdate = LocalDateTime.now()
-            val dayformatter = DateTimeFormatter.ofPattern("yyyyMMdd")
-            val timeformatter = DateTimeFormatter.ofPattern("HHmmss")
-            val formattedDay = currentdate.format(dayformatter)
-            val formattedTime = currentdate.format(timeformatter)
-            if (loggedinStudent != null) {
-                database = FirebaseDatabase.getInstance("https://quisumqr-default-rtdb.asia-southeast1.firebasedatabase.app").getReference("Students")
-                database.child(loggedinStudent).child("Attendances").child(formattedDay).setValue(formattedTime.toString()).addOnSuccessListener {
-                Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show() }
+            val (scanDate, scanTime) = getTime(currentdate)
+            if (loggedinStudent?.let { hasScannedToday(scanDate, it) } == false) {
+                if (loggedinStudent != null) {
+                    database =
+                        FirebaseDatabase.getInstance("https://quisumqr-default-rtdb.asia-southeast1.firebasedatabase.app")
+                            .getReference("Students")
+                    database.child(loggedinStudent).child("Attendances").child(scanDate)
+                        .setValue(scanTime).addOnSuccessListener {
+                        Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                tv_confirmation.text = "Attendance logged!"
+                val scanTime = currentdate.format(DateTimeFormatter.ofPattern("HH:mm:ss"))
+                scannerTime.text = scanTime
+            } else {
+
             }
-            tv_confirmation.text = "Attendance logged!"
+            val hasScanned = Intent(this, PostScan::class.java);
+            hasScanned.putExtra("scanTime",scanTime)
+            startActivity(hasScanned);
+            finish();
         }
     }
 
+    fun hasScannedToday(currentDay: String, student:String):Boolean
+    {
+        var scannedToday : Boolean = false
+        database = FirebaseDatabase.getInstance().getReference(student)
+        database.child("Attendances").child(currentDay).get().addOnSuccessListener {
+            if (it.exists()){
+                scannedToday = true
+            } else{
+                Toast.makeText(this, "Has scanned today", Toast.LENGTH_SHORT).show()
+                scannedToday = false
+            }}.addOnFailureListener{
+                Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
+        }
+        return scannedToday
+    }
+    private fun getTime(dateNow: LocalDateTime):Pair<String,String>
+    {
+        val dayformatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+        val timeformatter = DateTimeFormatter.ofPattern("HH:mm:ss")
+        val formattedDate = dateNow.format(dayformatter)
+        val formattedTime = dateNow.format(timeformatter)
+        return Pair(formattedDate,formattedTime)
+
+    }
     override fun onResume() {
         super.onResume()
         codeScanner.startPreview()
