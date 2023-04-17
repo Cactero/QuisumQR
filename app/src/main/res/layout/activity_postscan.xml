@@ -52,16 +52,6 @@
                 android:text=""
                 android:layout_gravity="center"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/postscanGoToScanner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:paddingStart="10dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp"
-                android:text="Scanner"></com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
     </ScrollView>
