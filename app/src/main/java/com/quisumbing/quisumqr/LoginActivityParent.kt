@@ -36,6 +36,7 @@ class LoginActivityParent : AppCompatActivity() {
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             val intent = Intent(this, ParentMainActivity::class.java)
+                            intent.putExtra("parentstudentLRN", parentstudentLRN)
                             startActivity(intent)
                         } else {
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()

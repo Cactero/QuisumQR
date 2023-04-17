@@ -36,13 +36,6 @@ class PostScan : AppCompatActivity() {
                 } else{
                 }}.addOnFailureListener {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
-
-                val btnToUserPrompt = findViewById<Button>(R.id.postscanGoToScanner)
-                btnToUserPrompt.setOnClickListener({
-                    val toUserPrompt = Intent(this, UserPrompt::class.java);
-                    startActivity((toUserPrompt));
-                    finish();
-                })
             }
         }
-}}
+    }}

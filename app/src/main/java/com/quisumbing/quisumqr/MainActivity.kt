@@ -51,13 +51,6 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        val btnscannerGoToSignup = findViewById<Button>(R.id.scannerGoToSignUp)
-        btnscannerGoToSignup.setOnClickListener {
-            val scannerGoToSignup = Intent(this, SignUpActivityStudent::class.java);
-            startActivity((scannerGoToSignup));
-            finish();
-        }
-
         setupPermissions()
         codeScanner()
     }

@@ -32,12 +32,6 @@ class SignUpActivityStudent : AppCompatActivity() {
         binding = ActivitySignupStudentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val btnsignupToScanner = findViewById<Button>(R.id.studentGoToScanner)
-        btnsignupToScanner.setOnClickListener({
-            val signupToScanner = Intent(this, MainActivity::class.java);
-            startActivity((signupToScanner));
-            finish();
-        })
 
         val btnsignupToLogin = findViewById<TextView>(R.id.studentBtnAlreadyRegistered)
         btnsignupToLogin.setOnClickListener({
